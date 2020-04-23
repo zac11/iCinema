@@ -1,0 +1,261 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 8,
+    "passes": 8,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-04-21T16:03:35.377Z",
+    "end": "2020-04-21T16:03:40.614Z",
+    "duration": 5237,
+    "testsRegistered": 8,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c3c3b79f-49ad-4011-8aa6-cb22019c6e00",
+      "title": "",
+      "fullFile": "cypress/integration/examples/connectors.spec.js",
+      "file": "cypress/integration/examples/connectors.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "99638121-fefb-4cee-a452-32e26417b0e1",
+          "title": "Connectors",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": ".each() - iterate over an array of elements",
+              "fullTitle": "Connectors .each() - iterate over an array of elements",
+              "timedOut": null,
+              "duration": 1064,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// https://on.cypress.io/each\ncy.get('.connectors-each-ul>li')\n    .each(function ($el, index, $list) {\n    console.log($el, index, $list);\n});",
+              "err": {},
+              "uuid": "cd503023-e9b8-4290-867d-2a08bb3323b5",
+              "parentUUID": "99638121-fefb-4cee-a452-32e26417b0e1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": ".its() - get properties on the current subject",
+              "fullTitle": "Connectors .its() - get properties on the current subject",
+              "timedOut": null,
+              "duration": 414,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// https://on.cypress.io/its\ncy.get('.connectors-its-ul>li')\n    // calls the 'length' property yielding that value\n    .its('length')\n    .should('be.gt', 2);",
+              "err": {},
+              "uuid": "2c1f222f-cb21-4eb0-8f49-b2aaa0845cd1",
+              "parentUUID": "99638121-fefb-4cee-a452-32e26417b0e1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": ".invoke() - invoke a function on the current subject",
+              "fullTitle": "Connectors .invoke() - invoke a function on the current subject",
+              "timedOut": null,
+              "duration": 330,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// our div is hidden in our script.js\n// $('.connectors-div').hide()\n// https://on.cypress.io/invoke\ncy.get('.connectors-div').should('be.hidden')\n    // call the jquery method 'show' on the 'div.container'\n    .invoke('show')\n    .should('be.visible');",
+              "err": {},
+              "uuid": "4a929340-52fb-49d1-8f3e-d8293c2659e9",
+              "parentUUID": "99638121-fefb-4cee-a452-32e26417b0e1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": ".spread() - spread an array as individual args to callback function",
+              "fullTitle": "Connectors .spread() - spread an array as individual args to callback function",
+              "timedOut": null,
+              "duration": 310,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// https://on.cypress.io/spread\nvar arr = ['foo', 'bar', 'baz'];\ncy.wrap(arr).spread(function (foo, bar, baz) {\n    expect(foo).to.eq('foo');\n    expect(bar).to.eq('bar');\n    expect(baz).to.eq('baz');\n});",
+              "err": {},
+              "uuid": "bbcf5000-178b-490c-aa88-c2ceecbb3a66",
+              "parentUUID": "99638121-fefb-4cee-a452-32e26417b0e1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [
+            {
+              "uuid": "8a9dfb90-5fdf-48a4-8ada-5d93e428d705",
+              "title": ".then()",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "invokes a callback function with the current subject",
+                  "fullTitle": "Connectors .then() invokes a callback function with the current subject",
+                  "timedOut": null,
+                  "duration": 337,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// https://on.cypress.io/then\ncy.get('.connectors-list > li')\n    .then(function ($lis) {\n    expect($lis, '3 items').to.have.length(3);\n    expect($lis.eq(0), 'first item').to.contain('Walk the dog');\n    expect($lis.eq(1), 'second item').to.contain('Feed the cat');\n    expect($lis.eq(2), 'third item').to.contain('Write JavaScript');\n});",
+                  "err": {},
+                  "uuid": "8487898f-9a2c-4177-aea4-cb9168e0f6a0",
+                  "parentUUID": "8a9dfb90-5fdf-48a4-8ada-5d93e428d705",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "yields the returned value to the next command",
+                  "fullTitle": "Connectors .then() yields the returned value to the next command",
+                  "timedOut": null,
+                  "duration": 351,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.wrap(1)\n    .then(function (num) {\n    expect(num).to.equal(1);\n    return 2;\n})\n    .then(function (num) {\n    expect(num).to.equal(2);\n});",
+                  "err": {},
+                  "uuid": "95be19ca-e929-4152-bb42-f492fbf6f053",
+                  "parentUUID": "8a9dfb90-5fdf-48a4-8ada-5d93e428d705",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "yields the original subject without return",
+                  "fullTitle": "Connectors .then() yields the original subject without return",
+                  "timedOut": null,
+                  "duration": 329,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.wrap(1)\n    .then(function (num) {\n    expect(num).to.equal(1);\n    // note that nothing is returned from this callback\n})\n    .then(function (num) {\n    // this callback receives the original unchanged value 1\n    expect(num).to.equal(1);\n});",
+                  "err": {},
+                  "uuid": "97be35d6-e332-42ca-8276-19416ea2ee0c",
+                  "parentUUID": "8a9dfb90-5fdf-48a4-8ada-5d93e428d705",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "yields the value yielded by the last Cypress command inside",
+                  "fullTitle": "Connectors .then() yields the value yielded by the last Cypress command inside",
+                  "timedOut": null,
+                  "duration": 333,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.wrap(1)\n    .then(function (num) {\n    expect(num).to.equal(1);\n    // note how we run a Cypress command\n    // the result yielded by this Cypress command\n    // will be passed to the second \".then\"\n    cy.wrap(2);\n})\n    .then(function (num) {\n    // this callback receives the value yielded by \"cy.wrap(2)\"\n    expect(num).to.equal(2);\n});",
+                  "err": {},
+                  "uuid": "2d6e6d69-152d-47fd-af1e-32ec270e16e4",
+                  "parentUUID": "8a9dfb90-5fdf-48a4-8ada-5d93e428d705",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "8487898f-9a2c-4177-aea4-cb9168e0f6a0",
+                "95be19ca-e929-4152-bb42-f492fbf6f053",
+                "97be35d6-e332-42ca-8276-19416ea2ee0c",
+                "2d6e6d69-152d-47fd-af1e-32ec270e16e4"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1350,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [
+            "cd503023-e9b8-4290-867d-2a08bb3323b5",
+            "2c1f222f-cb21-4eb0-8f49-b2aaa0845cd1",
+            "4a929340-52fb-49d1-8f3e-d8293c2659e9",
+            "bbcf5000-178b-490c-aa88-c2ceecbb3a66"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2118,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.1.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.0"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}
