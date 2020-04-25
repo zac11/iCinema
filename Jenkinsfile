@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Dependencies'){
             steps {
-                echo "Workplace ${DB_ENGINE}"
+                echo "Workplace ${HOME}"
                 sh 'npm i'
                 
             }
