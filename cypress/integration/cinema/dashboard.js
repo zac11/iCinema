@@ -2,9 +2,13 @@
 
 import LandingPage from "../../support/pageobjects/landing";
 import MovieSelection  from "../../support/pageobjects/movieselection";
+import Timeselection from "../../support/pageobjects/timeselection";
+import Tickets from "../../support/pageobjects/tickets";
 
 const landing  = new LandingPage();
 const moveselection = new MovieSelection();
+const time = new Timeselection();
+const tickets = new Tickets();
 describe('Landing on the Dashboard',()=>{
     it('goes to dashboard',()=>{
         landing.visitHomePage()
@@ -60,6 +64,30 @@ describe('Landing on the Dashboard',()=>{
 
     it('checks if the image is present for the movies',()=>{
         moveselection.checkMovieImage();
+    });
+
+    it('clicks on next arrow',()=>{
+        landing.clickNextArrow();
+    });
+
+    it('checks if the user is now on schedule page',()=>{
+        landing.checkURL('schedule');
+    });
+
+    it('checks that the schedules are not empty',()=>{
+        time.checkScheduleNotEmpty();
+    });
+
+    it('selects a time slot',()=>{
+        time.selectRandomTimeSlot(2);
+    });
+
+    it('goes to next page',()=>{
+        landing.clickNextArrow();
+    })
+
+    it('enter 3 tickes',()=>{
+        tickets.setTicketCount(3);
     })
 
 

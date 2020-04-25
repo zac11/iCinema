@@ -5,6 +5,7 @@ pipeline {
 
     environment {
         CHROME_BIN = '/bin/google-chrome'
+        **HOME="${env.WORKSPACE}"**
     }
 
     stages {
