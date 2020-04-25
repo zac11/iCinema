@@ -23,3 +23,7 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("highlight",{prevSubject: "element"}, $el =>{
+        $el.css('border','3px solid magenta')
+});
