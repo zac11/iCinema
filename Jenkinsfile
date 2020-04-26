@@ -15,13 +15,14 @@ pipeline {
                 sh 'cd client'
                 sh 'npm ci'
                 sh 'cd ..'
-                echo 'pwd'
+                sh 'pwd'
             }
         }
 
         stage('run the web server') {
             steps {
-                sh 'nohup npm start > /dev/null 2>&1 & '
+                // wait-on will wait untill the server is up
+                sh 'nohup npm start > /dev/null 2>&1 & wait-on http://localhost:3000'
             }
         }
 
