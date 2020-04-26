@@ -27,3 +27,16 @@
 Cypress.Commands.add("highlight",{prevSubject: "element"}, $el =>{
         $el.css('border','3px solid magenta')
 });
+
+Cypress.Commands.add('any', { prevSubject: 'element' }, (subject, size = 1) => {
+        return cy.wrap(subject).then(elementList => {
+      
+          // this line enables me to use this command with either cy.get() or cy.wrap()
+          elementList = (elementList.jquery) ? elementList.get() : elementList;
+      
+          elementList = Cypress._.sampleSize(elementList, size);
+          elementList = (elementList.length > 1) ? elementList : elementList[0];
+      
+          return cy.wrap(elementList);
+        });
+      });
