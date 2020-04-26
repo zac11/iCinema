@@ -21,7 +21,7 @@ pipeline {
 
         stage('run the web server') {
             steps {
-                sh 'npm run start-server'
+                sh 'npm start'
                 sh 'sleep 30'
             }
 
