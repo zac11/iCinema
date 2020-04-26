@@ -22,11 +22,9 @@ pipeline {
         stage('run the web server') {
             steps {
                 sh 'npm run start-server'
-            }
-
-            steps{
                 sh 'sleep 30'
             }
+
         }
 
         stage('Run Cypress tests'){
