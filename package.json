@@ -6,7 +6,7 @@
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "node server.js",
-    "client": "node start-client.js",
+    "client": "node start-client.js --no-clipboard --listen ${PORT:-3000}",
     "clean-reports": "rm -rf cypress/reports",
     "test-ff": "npx cypress run --browser firefox",
     "clean:reports": "rm -R -f cypress/reports && mkdir cypress/reports && mkdir cypress/reports/mochareports",
@@ -16,7 +16,7 @@
     "generate-report": "marge cypress/reports/mochareports/report.json -f report -o cypress/reports/mochareports",
     "posttest": "npm run combine-reports && npm run generate-report",
     "test": "npm run scripts || npm run posttest",
-    "start-server":"nohup npm start > /dev/null 2>&1 & "
+    "test:ci": "run-p --race start test"
   },
   "repository": {
     "type": "git",
@@ -37,6 +37,7 @@
     "mochawesome": "^6.1.0",
     "mochawesome-merge": "^4.0.3",
     "mongoose": "^5.5.6",
+    "npm-run-all": "^4.1.5",
     "react-numeric-input": "^2.2.3",
     "react-redux-form": "^1.16.13",
     "redux-form": "^8.1.0",

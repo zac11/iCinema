@@ -84,11 +84,28 @@ describe('Landing on the Dashboard',()=>{
 
     it('goes to next page',()=>{
         landing.clickNextArrow();
+    });
+
+    it('checks the person is on tickets page',()=>{
+        landing.checkURL('tickets')
     })
 
     it('enter 3 tickes',()=>{
+        //randomly enter tickets
         tickets.setTicketCount(3);
-    })
+    });
+
+    it('clicks on next arrow',()=>{
+        landing.clickNextArrow();
+    });
+
+    it('checks the person is on seats page',()=>{
+        landing.checkURL('seats');
+    });
+
+    it('')
+
+
 
 
 })
