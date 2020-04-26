@@ -21,8 +21,11 @@ pipeline {
 
         stage('run the web server') {
             steps {
-                // wait-on will wait untill the server is up
-                sh 'nohup npm start > /dev/null 2>&1 & wait-on http://localhost:3000'
+                sh 'npm run start-server'
+            }
+
+            steps{
+                sh 'sleep 30'
             }
         }
 
