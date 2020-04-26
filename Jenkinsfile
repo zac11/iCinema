@@ -1,20 +1,23 @@
 pipeline {
-    agent any
-
-    tools {nodejs "node"}
-
-    environment {
-        CHROME_BIN = '/bin/google-chrome'
-        HOME="${env.WORKSPACE}"
+    agent {
+        docker {
+            image 'cypress/base:10'
+        }
     }
 
     stages {
-        stage('Dependencies'){
+        stage('build'){
+            environment {
+                 CHROME_BIN = '/bin/google-chrome'
+            }
             steps {
-                echo "Workplace ${HOME}"
-                sh 'npm i'
-                
+                sh 'npm ci'
+                sh 'cd client'
+                sh 'npm ci'
             }
         }
     }
+
+
 }
+
