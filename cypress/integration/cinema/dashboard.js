@@ -4,11 +4,12 @@ import LandingPage from "../../support/pageobjects/landing";
 import MovieSelection  from "../../support/pageobjects/movieselection";
 import Timeselection from "../../support/pageobjects/timeselection";
 import Tickets from "../../support/pageobjects/tickets";
-
+import Seats from "../../support/pageobjects/seats";
 const landing  = new LandingPage();
 const moveselection = new MovieSelection();
 const time = new Timeselection();
 const tickets = new Tickets();
+const seats = new Seats();
 describe('Landing on the Dashboard',()=>{
     it('goes to dashboard',()=>{
         landing.visitHomePage()
@@ -95,6 +96,14 @@ describe('Landing on the Dashboard',()=>{
         tickets.setTicketCount(3);
     });
 
+    it('checks price of tickets',()=>{
+        tickets.getTotalTicketPrice();
+    });
+
+    it('clicks on Save button',()=>{
+        tickets.saveBtn();
+    })
+
     it('clicks on next arrow',()=>{
         landing.clickNextArrow();
     });
@@ -103,8 +112,13 @@ describe('Landing on the Dashboard',()=>{
         landing.checkURL('seats');
     });
 
-    it('')
-
+    it('checks all seats are unoccupied',()=>{
+        seats.checkAllSeatsUnSelected();
+    })
+  
+    it('adds chairs',()=>{
+        seats.clickAndAddChairs();
+    })
 
 
 

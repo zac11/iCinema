@@ -11,6 +11,7 @@ pipeline {
                  CHROME_BIN = '/bin/google-chrome'
             }
             steps {
+                sh 'rm -rf node_modules'
                 sh 'npm ci'
                 sh 'cd client'
                 sh 'npm ci'
@@ -21,16 +22,12 @@ pipeline {
 
         stage('run the web server') {
             steps {
-                sh 'npm start'
+                // for some reason react- scripts are not getting found
+                sh 'npm i react-scripts'
+                sh 'npm run test:ci'
                 sh 'sleep 30'
             }
 
-        }
-
-        stage('Run Cypress tests'){
-            steps{
-                sh 'npm run test'
-            }
         }
     }
 

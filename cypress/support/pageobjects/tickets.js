@@ -13,4 +13,17 @@ export default class Tickets{
             cy.wrap(element).type(2, { force: true });
         });
     }
+
+    getTotalTicketPrice(){
+        cy.get('div.sum-field > label:nth-child(2)').should(($div)=>{
+            const text = $div.text().split(' ')[0];
+            expect(parseInt(text)).to.be.greaterThan(0);
+            
+        })
+        
+    }
+
+    saveBtn(){
+        cy.get('button#confirm-btn').click();
+    }
 }
