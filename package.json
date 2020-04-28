@@ -46,7 +46,6 @@
   "devDependencies": {
     "concurrently": "^4.1.0",
     "cypress-multi-reporters": "^1.2.4",
-    "eslint": "^5.16.0",
     "mochawesome-report-generator": "^5.1.0",
     "start-server-and-test": "^1.11.0"
   }
