@@ -16,14 +16,12 @@
  * @type {Cypress.PluginConfig}
  */
 module.exports = (on, config) => {
-
-  on('before:browser:launch', (browser = {}, args) => {
-    if (browser.name === 'chrome') {
-      args.push('--disable-dev-shm-usage')
-      return args
+  on('before:browser:launch', (browser = {}, launchOptions) => {
+    if (browser.family === 'chromium' && browser.name !== 'electron') {
+      launchOptions.args.push('--disable-dev-shm-usage')
     }
 
-    return args
+    return launchOptions
   })
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
