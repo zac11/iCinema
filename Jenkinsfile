@@ -12,9 +12,9 @@ pipeline {
             }
             steps {
                 sh 'rm -rf node_modules'
-                sh 'npm ci'
+                sh 'npm i'
                 sh 'cd client'
-                sh 'npm ci'
+                sh 'npm i'
                 // for some reason axios is not getting installed
                 sh 'npm install --save axios'
                 sh 'cd ..'
