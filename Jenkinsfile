@@ -15,6 +15,8 @@ pipeline {
                 sh 'npm ci'
                 sh 'cd client'
                 sh 'npm ci'
+                // for some reason axios is not getting installed
+                sh 'npm install --save axios'
                 sh 'cd ..'
                 sh 'pwd'
             }
